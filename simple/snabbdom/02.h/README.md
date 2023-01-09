@@ -1,5 +1,7 @@
 # h
 
+根据传参的个数以及类型，动态生成虚拟 DOM
+
 ## 代码
 
 [`snabbdom.js`](./snabbdom.js)
