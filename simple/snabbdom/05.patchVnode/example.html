@@ -5,8 +5,8 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>patchVnode</title>
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css" />
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap-theme.min.css" />
+    <link rel="stylesheet" href="./../../../assets/lib/bootstrap-3.4.1/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="./../../../assets/lib/bootstrap-3.4.1/css/bootstrap-theme.min.css" />
   </head>
 
   <body>
@@ -17,23 +17,26 @@
       <pre>h('ul', {}, h('li', {}, '文字'));</pre>
     </div>
 
+    <script src="./../01.vnode/snabbdom.js"></script>
+    <script src="./../02.h/snabbdom.js"></script>
+    <script src="./../03.creteElement/snabbdom.js"></script>
+    <script src="./../04.patch/snabbdom.js"></script>
     <script src="./snabbdom.js"></script>
     <script>
+      console.group("[simple-snabbdom]05.patchVnode");
       const container = document.getElementById("container");
       const example01 = h("div", {}, "文字");
       const example02 = h("ul", {}, []);
       const example03 = h("ul", {}, h("li", {}, "文字"));
       const example04 = h("ul", {}, "文字");
-      const example05 = h("ul", {}, [
-        h("li", { key: "A" }, "A"),
-        h("li", { key: "B" }, "B"),
-        h("li", { key: "C" }, "C"),
-        h("li", { key: "D" }, "D"),
-        h("li", { key: "E" }, "E"),
-      ]);
+      const example05 = h("ul", {}, [h("li", { key: "A" }, "A"), h("li", { key: "B" }, "B"), h("li", { key: "C" }, "C"), h("li", { key: "D" }, "D"), h("li", { key: "E" }, "E")]);
       console.log({ container, example01, example02, example03, example04, example05 });
       patch(container, example04);
       patch(example04, example05);
+      // 00.propterty
+      console.log(this, window, parent, document);
+      if (parent && parent.adjustHeight) parent.adjustHeight(document);
+      console.groupEnd();
     </script>
   </body>
 </html>

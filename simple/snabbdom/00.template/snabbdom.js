@@ -1,3 +1,8 @@
+function vnode(sel, data, children, text, elm) {
+  const key = data.key;
+  return { sel, data, children, text, elm, key };
+}
+
 function h(sel, b, c) {
   if (arguments.length < 3) throw new Error("arguments.length < 3");
   // 检查参数c的类型

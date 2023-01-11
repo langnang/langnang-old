@@ -8,16 +8,21 @@ class Node{
   others
 }
 class Vnode{
-  sel
-  data
-  children <Array Vnode>
-  text
-  elm
-  key
+  sel: String
+  data: <Object Attributes>
+  children: <Array Vnode>
+  text: String
+  elm: <DOM>
+  key: String
 }
 
-Node --> Vnode::elm
 Node::tagName --> Vnode::sel
 Node::innerText --> Vnode::text
 Node::others --> Vnode::data
 ```
+
+## 代码
+
+[`snabbdom.js`](./snabbdom.js)
+
+<!-- @import "./snabbdom.js" {code_block=true} -->
