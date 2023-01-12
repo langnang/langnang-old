@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>createElement</title>
+    <link rel="stylesheet" href="./../../../assets/lib/bootstrap-3.4.1/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="./../../../assets/lib/bootstrap-3.4.1/css/bootstrap-theme.min.css" />
+  </head>
+
+  <body>
+    <div id="container" class="container">
+      <pre>createElement(h('div', {}, "文字"));</pre>
+      <pre>createElement(h('ul', {}, []));</pre>
+      <pre>createElement(h('ul', {}, h('li', {}, '文字')));</pre>
+    </div>
+
+    <script src="./../00.property/snabbdom.js"></script>
+    <script src="./../../example.js"></script>
+    <script>
+      loadPrevAllScripts("createElement", () => {
+        const container = document.getElementById("container");
+        const example01 = createElement(h("div", {}, "文字"));
+        const example02 = createElement(h("ul", {}, []));
+        const example03 = createElement(h("ul", {}, h("li", {}, "文字")));
+        console.log({ container, example01, example02, example03 });
+      });
+    </script>
+  </body>
+</html>

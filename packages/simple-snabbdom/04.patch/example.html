@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>patch</title>
+    <link rel="stylesheet" href="./../../../assets/lib/bootstrap-3.4.1/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="./../../../assets/lib/bootstrap-3.4.1/css/bootstrap-theme.min.css" />
+  </head>
+
+  <body>
+    <div class="container">
+      <div id="container"></div>
+      <pre>h('div', {}, "文字");</pre>
+      <pre>h('ul', {}, []);</pre>
+      <pre>h('ul', {}, h('li', {}, '文字'));</pre>
+    </div>
+
+    <script src="./../00.property/snabbdom.js"></script>
+    <script src="./../../example.js"></script>
+    <script>
+      loadPrevAllScripts("patch", () => {
+        const container = document.getElementById("container");
+        const example01 = h("div", {}, "文字");
+        const example02 = h("ul", {}, []);
+        const example03 = h("ul", {}, h("li", {}, "文字"));
+        console.log({ container, example01, example02, example03 });
+        patch(container, example01);
+        patch(container, example03);
+        // 00.propterty
+        if (parent && parent.adjustHeight) parent.adjustHeight(document);
+      });
+    </script>
+  </body>
+</html>
